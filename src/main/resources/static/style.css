@@ -1,0 +1,166 @@
+.sidebar {
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 40px;
+  background-color: #69f0ae;
+}
+.sidebar div {
+  padding: 8px;
+  font-size: 24px;
+  display: block;
+}
+
+/*------------------------------------таблица                             */
+table {
+    max-width: 900px; /* Устанавливаем максимальную ширину таблицы */
+    margin-left: auto; /* Выравниваем таблицу по центру */
+    margin-right: auto; /* Выравниваем таблицу по центру */
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #00bfa5;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+tr:hover {
+    background-color: #ddd;
+}
+a {
+    text-decoration: none;
+    color: blue;
+}
+a:hover {
+    color: darkblue;
+}
+
+/*------------------------------------Кнопка добавить                             */
+.add-button, .edit-button {
+    background-color: #4CAF50; /* Зеленый цвет фона */
+    border: none;
+    color: white; /* Белый цвет текста */
+    padding: 15px 32px; /* Отступы */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px; /* Скругление углов */
+}
+.add-button:hover, .edit-button:hover {
+    background-color: #388e3c; /* Темнозеленый цвет фона при наведении курсора */
+}
+
+/*------------------------------------Кнопка назад                                */
+.back-button {
+    background-color: #03a9f4; /* Голубой цвет фона */
+    border: none;
+    color: white; /* Белый цвет текста */
+    padding: 15px 32px; /* Отступы */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px; /* Скругление углов */
+}
+.back-button:hover {
+    background-color: #0288d1; /* Темнозеленый цвет фона при наведении курсора */
+}
+
+/*------------------------------------Кнопка удалить                                */
+.delete-button {
+    background-color: #ff0000; /* Голубой цвет фона */
+    border: none;
+    color: white; /* Белый цвет текста */
+    padding: 15px 32px; /* Отступы */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px; /* Скругление углов */
+}
+.delete-button:hover {
+    background-color: #8b0000; /* Темнозеленый цвет фона при наведении курсора */
+}
+
+
+/*------------------------------------Для формы                                       */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* Стили для заголовков */
+label {
+    font-weight: bold;
+}
+/* Стили для текстовых полей */
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+/* Стили для выпадающего списка */
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/*------------------------------------Форма представления данных                          */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.data-field {
+    margin-bottom: 15px;
+}
+.data-field label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+.data-field input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.myclass {
+    display:inline-block;
+    width: 80px;
+    height: 40px;
+}

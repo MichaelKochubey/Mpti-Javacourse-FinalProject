@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Книги, имеющиеся в библиотеке</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <link rel="shortcut icon" th:href="@{/bookimage.png}" type="image/png">
+</head>
+<body>
+    <div class="sidebar">
+        <a href="/api/v1/books">
+            <div>Книги</div>
+        </a>
+        <a href="/api/v1/persons">
+            <div>Читатели</div>
+        </a>
+        <a href="/api/v1/authors">
+            <div>Авторы</div>
+        </a>
+        <a href="/api/v1/readings">
+            <div>Выдача книг</div>
+        </a>
+    </div>
+    <table border="1">
+        <tr>
+            <th>Название</th>
+            <th>Автор</th>
+            <th>Год издания</th>
+        </tr>
+        <tr th:each = "book: ${books}">
+            <td>
+                <a th:href="@{/api/v1/books/{id}(id=${book.id})}" th:text="${book.name}"></a>
+            </td>
+            <td th:text="${book.author.name}">vasile</td>
+            <td th:text="${book.yearOfPublishment}">45</td>
+        </tr>
+    </table>
+    <a class="add-button" href="/api/v1/books/new" onclick="alert('Проверьте наличие автора. \n Если нет в списке, то добавьте в разделе Авторы')" style="margin-left : 320px">Добавить новую книгу</a>
+</body>
+</html>

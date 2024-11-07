@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <title>Библиотека Online</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <link rel="shortcut icon" th:href="@{/bookimage.png}" type="image/png">
+</head>
+<body>
+    <div class="sidebar">
+        <a href="/api/v1/books">
+            <div>Книги</div>
+        </a>
+        <a href="/api/v1/persons">
+            <div>Читатели</div>
+        </a>
+        <a href="/api/v1/authors">
+            <div>Авторы</div>
+        </a>
+        <a href="/api/v1/readings">
+            <div>Выдача книг</div>
+        </a>
+    </div>
+</body>
+</html>

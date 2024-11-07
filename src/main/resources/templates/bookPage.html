@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Просмотр информации о книге</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <link rel="shortcut icon" th:href="@{/bookimage.png}" type="image/png">
+</head>
+<body>
+    <div class="sidebar">
+        <a href="/api/v1/books">
+            <div>Книги</div>
+        </a>
+        <a href="/api/v1/persons">
+            <div>Читатели</div>
+        </a>
+        <a href="/api/v1/authors">
+            <div>Авторы</div>
+        </a>
+        <a href="/api/v1/readings">
+            <div>Выдача книг</div>
+        </a>
+    </div>
+    <div class="container">
+        <div class="data-field">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" th:value="${book.id}" readonly>
+        </div>
+        <div class="data-field">
+            <label for="name">Название:</label>
+            <input type="text" id="name" name="name" th:value="${book.name}" readonly>
+        </div>
+        <div class="data-field">
+            <label for="year">Год издания:</label>
+            <input type="text" id="year" name="year" th:value="${book.yearOfPublishment}" readonly>
+        </div>
+        <div class="data-field">
+            <label for="author">Автор:</label>
+            <input type="text" id="author" name="author" th:value="${book.author.name}" readonly>
+        </div>
+        <div class="data-field">
+            <label>Описание:</label>
+            <textarea th:text="${book.description}" rows="4" cols="50" id="description" readonly></textarea>
+        </div>
+        <button type="button" class="back-button" onclick="window.location.href='/api/v1/books'">Назад</button>
+        <button type="submit" class="edit-button" onclick="enableEdit()">Изменить</button>
+        <button type="submit" class="add-button" onclick="save()" style="display: none;">Сохранить</button>
+        <button type="button" class="delete-button" onclick="deleteBook()">Удалить</button>
+    </div>
+    <script th:inline="javascript">
+        function enableEdit() {
+            document.getElementById('description').removeAttribute("readonly");
+
+            var editButton = document.querySelector('.edit-button');
+            editButton.style.display = "none";
+
+            var saveButton = document.querySelector('.add-button');
+            saveButton.style.display = "inline-block";
+        }
+
+        function save() {
+            var data = {};
+            data.id = document.getElementById('id').value;
+            data.name = document.getElementById('name').value;
+            data.yearOfPublishment = document.getElementById('year').value;
+            data.description = document.getElementById('description').value;
+
+            // Отправляем данные на 8080 с помощью json-запроса
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/api/v1/books/' + data.id, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify(data));
+
+            var editButton = document.querySelector('.edit-button');
+            editButton.style.display = "inline-block";
+
+            var saveButton = document.querySelector('.add-button');
+            saveButton.style.display = "none";
+        }
+
+        function deleteBook() {
+            var id = document.getElementById('id').value;
+            if (confirm("Вы уверены, что хотите удалить запись? \n Если книга выдана, то ее нельзя удалить")) {
+                var xhr = new XMLHttpRequest();
+                xhr.open('DELETE', '/api/v1/books/' + id, true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.send();
+                setTimeout(() => {}, 2000);
+                window.location.href = '/api/v1/books';
+            }
+        }
+    </script>
+</body>
+</html>

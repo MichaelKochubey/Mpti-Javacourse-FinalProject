@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Выдача книг</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <link rel="shortcut icon" th:href="@{/bookimage.png}" type="image/png">
+</head>
+<body>
+    <form action="/api/v1/readings/new" method="post">
+        <label for="personsList">Читатель:</label><br><select class="form-control" id="personsList" name="personsList">
+        <option th:each="person : ${persons}" th:value="${person.id}" th:text="${person.name}"></option>
+        </select><br><br>
+
+        <label for="booksList">Книга:</label><br><select class="form-control" id="booksList" name="booksList">
+        <option th:each="book : ${books}" th:value="${book.id}" th:text="${book.name}"></option>
+        </select><br><br>
+
+        <div style="display: flex; justify-content: space-between;">
+            <button type="button" class="back-button" onclick="window.location.href='/api/v1/readings'">Назад</button>
+            <button type="submit" class="add-button">Сохранить</button>
+        </div>
+    </form>
+</body>
+</html>

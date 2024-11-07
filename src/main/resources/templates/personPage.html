@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Информация о читателе</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <link rel="shortcut icon" th:href="@{/bookimage.png}" type="image/png">
+</head>
+<body>
+    <div class="sidebar">
+        <a href="/api/v1/books">
+            <div>Книги</div>
+        </a>
+        <a href="/api/v1/persons">
+            <div>Читатели</div>
+        </a>
+        <a href="/api/v1/authors">
+            <div>Авторы</div>
+        </a>
+        <a href="/api/v1/readings">
+            <div>Выдача книг</div>
+        </a>
+    </div>
+    <div class="container">
+        <div class="data-field">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" th:value="${person.id}" readonly>
+        </div>
+        <div class="data-field">
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" th:value="${person.name}" readonly>
+        </div>
+        <div class="data-field">
+            <label for="name">Адрес:</label>
+            <input type="text" id="addr" name="addr" th:value="${person.address}" readonly>
+        </div>
+        <table border="1">
+            <caption>Выданные книги:</caption>
+            <tr>
+                <th>Книга</th>
+            </tr>
+            <tr th:each = "reading: ${readings}">
+                <td th:text="${reading.book.name}">vasile</td>
+            </tr>
+        </table>
+        <button type="button" class="back-button" onclick="window.location.href='/api/v1/persons'">Назад</button>
+    </div>
+</body>
+</html>

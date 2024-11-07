@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление нового читателя</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <link rel="shortcut icon" th:href="@{/bookimage.png}" type="image/png">
+</head>
+<body>
+    <form action="/api/v1/persons/new" method="post">
+        <label for="name">Фамилия И.О.:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="address">Адрес:</label><br>
+        <input type="text" id="address" name="address"><br><br>
+
+        <div style="display: flex; justify-content: space-between;">
+            <button type="button" class="back-button" onclick="window.location.href='/api/v1/persons'">Назад</button>
+            <button type="submit" class="add-button">Сохранить</button>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление нового автора</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <link rel="shortcut icon" th:href="@{/bookimage.png}" type="image/png">
+</head>
+<body>
+    <form action="/api/v1/authors/new" method="post">
+        <label for="name">Фамилия И.О.:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+
+        <div style="display: flex; justify-content: space-between;">
+            <button type="button" class="back-button" onclick="window.location.href='/api/v1/authors'">Назад</button>
+            <button type="submit" class="add-button">Сохранить</button>
+        </div>
+    </form>
+</body>
+</html>

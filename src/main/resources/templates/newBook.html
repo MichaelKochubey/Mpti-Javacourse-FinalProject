@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление новой книги</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <link rel="shortcut icon" th:href="@{/bookimage.png}" type="image/png">
+</head>
+<body>
+    <form action="/api/v1/books/new" method="post">
+        <label for="name">Название:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="year">Год издания:</label><br>
+        <input type="text" id="year" name="year"><br><br>
+
+        <label for="description">Описание:</label><br>
+        <input type="text" id="description" name="description"><br><br>
+
+        <label for="authorList">Автор:</label><select class="form-control" id="authorList" name="authorList">
+            <option th:each="author : ${authors}" th:value="${author.name}" th:text="${author.name}"></option>
+        </select>
+
+        <div style="display: flex; justify-content: space-between;">
+            <button type="button" class="back-button" onclick="window.location.href='/api/v1/books'">Назад</button>
+            <button type="submit" class="add-button">Сохранить</button>
+        </div>
+    </form>
+</body>
+</html>
